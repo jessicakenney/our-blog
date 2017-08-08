@@ -12,20 +12,30 @@
         <link rel="stylesheet" href="/css/main.css">
     </head>
     <body>
-{{/block}}
-<div class="page">
-<div class="container">
-
-<!--begin main template-->
-
-{{#block "content"}}
-
+    <ul class="nav nav-tabs">
+        <li role="presentation" class="active"><a href="#">Home</a></li>
+        <li role="presentation"><a href="/posts">See All Posts</a></li>
+        <li role="presentation"><a href="/posts/new">Add a New Post</a></li>
+    </ul>
 {{/block}}
 
-<!--end main template-->
+    <div class="container">
+
+    <!--begin main template-->
+        <div class="page-header">
+            <img src="/images/blog-banner.jpg" width="100%">
+            <h1>Welcome to my Epicodus Blog. <small>A journey into code!</small></h1>
+        </div>
+
+        <div class="col-md-12">
+        {{#block "content"}}
+
+        {{/block}}
+        </div>
+
+    <!--end main template-->
 {{#block "footer"}}
-        <p>Photo by Sarah Crutchfield on Unsplash</p>
-    </div>
+            <p>Photos by Sarah Crutchfield and Brenda Godinez on Unsplash</p>
     </div>
 
     </body>

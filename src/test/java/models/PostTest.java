@@ -51,9 +51,6 @@ public class PostTest {
         Post myPost = new Post("Day 1: Intro");
         assertEquals(false, myPost.getPublished()); //should never start as published
     }
-    public Post newPost(){
-        return new Post("Day1: Intro");
-    }
 
     @Test
     public void getCreatedAt_instantiatesWithCurrentTime_today() throws Exception{
@@ -68,16 +65,21 @@ public class PostTest {
     }
 
     @Test
-    public void findReturnsCorrectPost() throws Exception {
+    public void findById_findReturnsCorrectPost() throws Exception {
         Post testpost = newPost();
         assertEquals(1, Post.findById(testpost.getId()).getId());
     }
 
     @Test
-    public void findReturnsCorrectPostWhenMoreThanOnePostExists() throws Exception {
+    public void findById_findReturnsCorrectPostWhenMoreThanOnePostExists() throws Exception {
         Post post = newPost();
         Post otherPost = new Post("How to pair successfully");
         assertEquals(2, Post.findById(otherPost.getId()).getId());
+    }
+
+    //helper
+    public Post newPost(){
+        return new Post("Day1: Intro");
     }
 
 }
