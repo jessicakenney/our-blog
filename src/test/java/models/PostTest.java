@@ -60,4 +60,11 @@ public class PostTest {
         Post myPost = newPost();
         assertEquals(LocalDateTime.now().getDayOfWeek(), myPost.getCreatedAt().getDayOfWeek());
     }
+    @Test
+    public void getId_postsInstantiateWithAnID_1() throws Exception{
+        Post.clearAllPosts();  // Remember, the test will fail without this line! We need to empty leftover Posts from previous tests!
+        Post myPost = new Post("Day 1: Intro");
+        assertEquals(1, myPost.getId());
+    }
+
 }
