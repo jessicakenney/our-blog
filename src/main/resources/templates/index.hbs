@@ -2,6 +2,15 @@
 
 <h1>Post list!</h1>
 
+{{#if posts}}
+    {{#each posts}} <!--loop-->
+    <p>***********</p>
+    <p>{{content}}</p> <!--show-->
+    {{/each}}
+{{else}} <!--noposts-->
+    <p>No posts!</p>
+{{/if}}
+
 <p>Add a new Post:</p>
 
 <form action="/posts/new" method="POST">
