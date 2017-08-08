@@ -11,6 +11,7 @@ public class Post {
 
     public Post (String content) {
         this.content = content;
+        instances.add(this);
     }
 
     public String getContent() {
@@ -18,7 +19,7 @@ public class Post {
     }
 
     public static ArrayList<Post> getAll() {
-        return null;
+        return instances;
     }
 
     public static void clearAllPosts() {
