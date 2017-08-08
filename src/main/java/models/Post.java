@@ -3,7 +3,13 @@ package models;
 
 public class Post {
 
-    public Post (String content) {
+    private String content;
 
+    public Post (String content) {
+        this.content = content;
+    }
+
+    public String getContent() {
+        return content;
     }
 }
