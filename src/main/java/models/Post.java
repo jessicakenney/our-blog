@@ -12,7 +12,7 @@ public class Post {
 
     public Post (String content) {
         this.content = content;
-        this.published = true;
+        this.published = false;
         instances.add(this);
     }
 
