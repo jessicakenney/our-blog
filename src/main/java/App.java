@@ -12,6 +12,11 @@ public class App {
         staticFileLocation("/public");
 
         //get: show new post form
+        get("/posts/new", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            return new ModelAndView(model, "newpost-form.hbs");
+        }, new HandlebarsTemplateEngine());
+
 
         //post: process new post form
         post("/posts/new", (request, response) -> { //URL to make new post on POST route
@@ -31,6 +36,13 @@ public class App {
         }, new HandlebarsTemplateEngine());
 
         //get: show an individual post
+        get("/posts/:id", (request, response) ->  {
+            Map<String, Object> model = new HashMap<>();
+            int idOfPostToFind = Integer.parseInt(request.params("id"));
+            Post foundPost = Post.findById(idOfPostToFind);
+            model.put("post", foundPost);
+            return new ModelAndView(model, "post-detail.hbs");
+        }, new HandlebarsTemplateEngine());
 
         //get: show a form to update a post
 
