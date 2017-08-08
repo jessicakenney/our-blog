@@ -21,26 +21,26 @@ public class PostTest {
 
     @Test
     public void NewPostObjectGetsCorrectlyCreates_true() throws Exception {
-        Post post = new Post("Day 1: Intro");
+        Post post = newPost();
         assertEquals(true, post instanceof Post);
     }
 
     @Test
     public void PostInstantiatesWithContent_true() throws Exception {
-        Post post = new Post("Day 1: Intro");
+        Post post = newPost();
         assertEquals("Day 1: Intro", post.getContent());
     }
 
     @Test
     public void AllPostsAreCorrectlyReturned_true() {
-        Post post = new Post("Day 1: Intro");
+        Post post = newPost();
         Post otherPost = new Post ("How to pair successfully");
         assertEquals(2, Post.getAll().size());
     }
 
     @Test
     public void AllPostsContainsAllPosts_true() {
-        Post post = new Post("Day 1: Intro");
+        Post post = newPost();
         Post otherPost = new Post ("How to pair successfully");
         assertEquals(true, Post.getAll().contains(post));
         assertEquals(true, Post.getAll().contains(otherPost));
@@ -48,7 +48,7 @@ public class PostTest {
 
     @Test
     public void getPublished_isFalseAfterInstantiation_false() throws Exception {
-        Post myPost = new Post("Day 1: Intro");
+        Post myPost = newPost();
         assertEquals(false, myPost.getPublished()); //should never start as published
     }
 
@@ -60,7 +60,7 @@ public class PostTest {
     @Test
     public void getId_postsInstantiateWithAnID_1() throws Exception{
         Post.clearAllPosts();  // Remember, the test will fail without this line! We need to empty leftover Posts from previous tests!
-        Post myPost = new Post("Day 1: Intro");
+        Post myPost = newPost();
         assertEquals(1, myPost.getId());
     }
 
@@ -79,7 +79,7 @@ public class PostTest {
 
     //helper
     public Post newPost(){
-        return new Post("Day1: Intro");
+        return new Post("Day 1: Intro");
     }
 
 }
