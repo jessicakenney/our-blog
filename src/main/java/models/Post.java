@@ -2,6 +2,7 @@ package models;
 
 
 import java.lang.reflect.Array;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class Post {
@@ -9,10 +10,12 @@ public class Post {
     private final String content;
     private static ArrayList<Post> instances = new ArrayList<>();
     private boolean published;
+    private LocalDateTime createdAt;
 
     public Post (String content) {
         this.content = content;
         this.published = false;
+        this.createdAt = LocalDateTime.now();
         instances.add(this);
     }
 
@@ -28,6 +31,9 @@ public class Post {
         instances.clear();
     }
     public boolean getPublished(){
-        return this.published;
+        return published;
+    }
+    public LocalDateTime getCreatedAt(){
+        return createdAt;
     }
 }

@@ -4,6 +4,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.time.LocalDateTime;
+
 import static org.junit.Assert.*;
 
 
@@ -48,5 +50,14 @@ public class PostTest {
     public void getPublished_isFalseAfterInstantiation_false() throws Exception {
         Post myPost = new Post("Day 1: Intro");
         assertEquals(false, myPost.getPublished()); //should never start as published
+    }
+    public Post newPost(){
+        return new Post("Day1: Intro");
+    }
+
+    @Test
+    public void getCreatedAt_instantiatesWithCurrentTime_today() throws Exception{
+        Post myPost = newPost();
+        assertEquals(LocalDateTime.now().getDayOfWeek(), myPost.getCreatedAt().getDayOfWeek());
     }
 }
