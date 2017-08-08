@@ -43,4 +43,10 @@ public class PostTest {
         assertEquals(true, Post.getAll().contains(post));
         assertEquals(true, Post.getAll().contains(otherPost));
     }
+
+    @Test
+    public void getPublished_isFalseAfterInstantiation_false() throws Exception {
+        Post myPost = new Post("Day 1: Intro");
+        assertEquals(false, myPost.getPublished()); //should never start as published
+    }
 }
