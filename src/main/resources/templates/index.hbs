@@ -1,11 +1,12 @@
 {{#partial "content"}}
 
-<h1>Post list!</h1>
+<h1>Post List</h1>
 
 {{#if posts}}
     {{#each posts}} <!--loop-->
-    <p>***********</p>
-    <p>{{content}}</p> <!--show-->
+    <div class = "well">
+    <p>{{content}}</p>
+    </div><!--show-->
     {{/each}}
 {{else}} <!--noposts-->
     <p>No posts!</p>
