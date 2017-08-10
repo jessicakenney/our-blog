@@ -17,14 +17,18 @@ public class App {
             Post.clearAllPosts();
             return new ModelAndView(model, "success.hbs");
         }, new HandlebarsTemplateEngine());
-git
+
+        //get:: home page
+        get ("/", (req, resp) -> {
+            Map<String, Object> model = new HashMap<>();
+            return new ModelAndView(model, "layout.hbs");
+        }, new HandlebarsTemplateEngine());
 
         //get: show new post form
         get("/posts/new", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
             return new ModelAndView(model, "post-form.hbs");
         }, new HandlebarsTemplateEngine());
-
 
         //post: process new post form
         post("/posts/new", (request, response) -> { //URL to make new post on POST route
@@ -36,7 +40,7 @@ git
         }, new HandlebarsTemplateEngine());
 
         //get: show all posts
-        get("/", (request, response) -> {
+        get("/posts", (request, response) -> {
 //            System.out.println(request.ip());
 //            System.out.println(response);
             Map<String, Object> model = new HashMap<String, Object>();
